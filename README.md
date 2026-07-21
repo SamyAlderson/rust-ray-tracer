@@ -1,55 +1,49 @@
-# rust-ray-tracer
-A simple ray tracer with BVH acceleration implemented in Rust
+# Ray Tracer
+A simple ray tracer with BVH acceleration implemented in Rust.
 
-## What
-This project is a basic ray tracer with support for BVH acceleration, PBR materials, and basic lighting. It's designed to demonstrate the concepts of ray tracing and BVH acceleration in a simple, easy-to-understand way.
+## What it does
 
-## Why
-I built this project to learn about ray tracing and BVH acceleration, and to practice implementing complex algorithms in Rust. This project is a starting point for anyone looking to learn about these topics.
+This project implements a basic ray tracer with BVH (Bounded Volume Hierarchy) acceleration. It supports PBR materials and basic lighting. It's intended as a learning project to explore the basics of ray tracing and BVH acceleration.
 
-## Install
-To run this project, you'll need Rust installed on your system. You can download the Rust installer from the official [Rust website](https://www.rust-lang.org/tools/install). Once you have Rust installed, you can build and run the project with the following commands:
+## Installation
 
-```bash
-cargo build
-cargo run
+### Cargo.toml
+
+Add the following line to your `Cargo.toml` file:
+
+```toml
+[dependencies]
+rayon = "1.5.3"
 ```
+
+Then run `cargo build` to build the project.
 
 ## Usage
-To use this project, simply run the `cargo run` command in the project directory. This will build and run the project, generating an image file in the `target` directory. You can customize the project's behavior by modifying the `src/main.rs` file.
 
-## Build from Source
-To build this project from source, simply clone the repository and run the `cargo build` command. This will build the project and generate a `target` directory containing the compiled binary and generated image file.
+Run the ray tracer with `cargo run`. You'll need to provide a scene file, which is a text file containing the scene description. You can use the `scenes` directory as a starting point.
 
-## Project Structure
-The project is organized into the following directories:
+## Building from source
 
-* `src`: contains the source code for the project
-* `tests`: contains unit tests for the project
-* `docs`: contains documentation for the project (currently empty)
+Run `cargo build` to build the project. This will generate a `target` directory containing the compiled binary.
+
+## Running tests
+
+Run `cargo test` to run the test suite.
+
+## Project structure
+
+* `src/main.rs`: Main entry point of the program.
+* `src/accel.rs`: BVH acceleration implementation.
+* `src/materials.rs`: PBR material implementation.
+* `src/scene.rs`: Scene representation and loading.
+* `src/ray.rs`: Ray implementation.
+* `src/light.rs`: Basic lighting implementation.
+* `src/utils.rs`: Utility functions.
+* `tests/test_scene.rs`: Test scene implementation.
+* `tests/test_runner.rs`: Test runner implementation.
 
 ## License
-This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
 
-## Features
-This project supports the following features:
+Copyright (c) 2026 SamyAlderson
 
-* BVH acceleration
-* PBR materials
-* Basic lighting
-
-## Dependencies
-This project depends on the following libraries:
-
-* `rayon` for parallelism
-* `nalgebra` for linear algebra
-* `image` for image processing
-
-## Benchmarks
-You can run the benchmarks with the following command:
-
-```bash
-cargo bench
-```
-
-This will run the benchmarks and generate a report in the `target` directory.
+Licensed under the MIT License.
