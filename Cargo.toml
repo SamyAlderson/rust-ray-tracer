@@ -2,3 +2,51 @@
 name = "rust-ray-tracer"
 version = "0.1.0"
 edition = "2021"
+
+[dependencies]
+rayon = "1.5.3"
+nalgebra = "0.28.1"
+image = "0.24.5"
+
+[features]
+default = ["BVH acceleration", "PBR materials", "Basic lighting"]
+
+[BHV acceleration]
+description = "Enable BVH acceleration for faster rendering"
+
+[PBR materials]
+description = "Enable physically-based rendering materials"
+
+[Basic lighting]
+description = "Enable basic lighting simulation"
+
+[dev-dependencies]
+tokio = { version = "1", features = ["full"] } # for testing
+
+[build-dependencies]
+build-helper = "0.1.20" # for building the documentation
+
+[bin]
+name = "ray_tracer"
+path = "src/main.rs"
+
+[lib]
+path = "src/lib.rs"
+
+[bin]
+name = "bench"
+path = "src/benchmarks.rs"
+
+[features]
+bench = ["rayon"]
+
+[lib]
+path = "src/lib.rs"
+
+[dev-dependencies]
+rayon = "1.5.3"
+nalgebra = "0.28.1"
+image = "0.24.5"
+
+[test]
+path = "tests/main.rs"
